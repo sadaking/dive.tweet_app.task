@@ -20,6 +20,19 @@ class ConnectsController < ApplicationController
     @connect = Connect.find(params[:id])
   end
 
+  def edit
+    @connect = Connect.find(params[:id])
+  end
+
+  def update
+    @connect = Connect.find(params[:id])
+    if @blog.update(blog_params)
+      redirect_to blogs_path, notice: "ブログを編集しました！"
+    else
+      render :edit
+    end
+  end
+
   private
 
   def connect_params
