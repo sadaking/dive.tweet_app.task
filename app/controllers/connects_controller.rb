@@ -1,6 +1,5 @@
 class ConnectsController < ApplicationController
   before_action :set_connect, only: [:show, :edit, :update, :destroy]
-
   def index
     @connect = Connect.all
   end
@@ -10,9 +9,9 @@ class ConnectsController < ApplicationController
   end
 
   def create
-    @connect = Connect.create(connect_params)
+    @connect = Connect.new(connect_params)
     if @connect.save
-      redirect_to new_connect_path, notice: "ツイートを削除しました！!"
+      redirect_to new_connect_path, notice: "ツイートを作成しました！!"
     else
       render :new
     end
@@ -25,8 +24,8 @@ class ConnectsController < ApplicationController
   end
 
   def update
-    if @blog.update(blog_params)
-      redirect_to blogs_path, notice: "ツイートを削除しました！"
+    if @connect.update(connect_params)
+      redirect_to connects_path, notice: "ツイートを編集しました！"
     else
       render :edit
     end

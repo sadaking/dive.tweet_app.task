@@ -1,9 +1,9 @@
-<%= form_with(model: Connect.new, local: true) do |form| %>
+<%= form_with(model: @connect, local: true) do |form| %>
   <% if @connect.errors.any? %>
     <div id="error_explanation">
-      <h2><%= @connect.errors.count %>項目のエラーがあります。</h2>
+      <h2><%= @connect.errors.count %>件のエラーがあります。</h2>
       <ul>
-      <% @connect.errors.full_messages.each do |msg|%>  
+      <% @connect.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -15,3 +15,4 @@
   </div>
   <%= form.submit %>
 <% end %>
+<%= link_to "ツイート一覧画面にもどる", connects_path %>
