@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
   resources :connects do
     collection do
