@@ -1,7 +1,7 @@
 class ConnectsController < ApplicationController
   before_action :set_connect, only: [:show, :edit, :update, :destroy]
   def index
-    @connect = Connect.all
+    @connects = Connect.all
   end
 
   def new
@@ -11,19 +11,22 @@ class ConnectsController < ApplicationController
   def create
     @connect = Connect.new(connect_params)
     if @connect.save
-      redirect_to new_connect_path, notice: "ツイートを作成しました！!"
+      redirect_to connects_path, notice: "ツイートを作成しました！"
     else
       render :new
     end
   end
 
   def show
+    @connect = Connect.find(params[:id])
   end
 
   def edit
+    @connect = Connect.find(params[:id])
   end
 
   def update
+    @connect = Connect.find(params[:id])
     if @connect.update(connect_params)
       redirect_to connects_path, notice: "ツイートを編集しました！"
     else
@@ -33,13 +36,12 @@ class ConnectsController < ApplicationController
 
   def destroy
     @connect.destroy
-    redirect_to connect_path, notice:"ツイートを削除しました！"
+    redirect_to connects_path, notice:"ツイートを削除しました！"
   end
 
   private
-
   def connect_params
-    params.require(:connect).permit(:connect)
+    params.require(:connect).permit(:content)
   end
 
   def set_connect
