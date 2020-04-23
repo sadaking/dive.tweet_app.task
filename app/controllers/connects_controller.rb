@@ -8,15 +8,20 @@ class ConnectsController < ApplicationController
   end
 
   def create
-    Connect.create(connect_params)
-    redirect_to new_connect_path
+    @connect = Connect.create(connect_params)
+    if @connect.save
+      redirect_to new_connect_path, notice: "ブログを作成しました!"
+    else
+      render :new
+    end
   end
 
   def show
+    @connect = Connect.find(params[:id])
   end
 
   private
-  
+
   def connect_params
     params.require(:connect).permit(:connect)
   end
