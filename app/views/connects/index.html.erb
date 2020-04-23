@@ -6,7 +6,7 @@
 <% @connect.each do |connect|%>
   <tr>
     <td><%= connect.content%></td>
-    <td><%= link_to '詳細を確認する'%></td>
+    <td><%= link_to '詳細を確認する', connect_path(connect.id) %></td>
   </tr>
 <% end %>
 </table>
