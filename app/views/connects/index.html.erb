@@ -1,2 +1,14 @@
-<h1>Connects#index</h1>
-<p>Find me in app/views/connects/index.html.erb</p>
+<h1>ツイート一覧</h1>
+<table>
+  <tr>
+    <th>タイトル</th>
+  </tr>
+<% @connect.each do |connect|%>
+  <tr>
+    <td><%= connect.content%></td>
+    <td><%= link_to '詳細を確認する'%></td>
+  </tr>
+<% end %>
+</table>
+<br>
+<%= link_to '新しくツイートを投稿する', new_connect_path%>
