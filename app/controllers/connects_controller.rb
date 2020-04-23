@@ -1,4 +1,5 @@
 class ConnectsController < ApplicationController
+  before_action :set_connect, only: [:show, :edit, :update]
   def index
     @connect = Connect.all
   end
@@ -17,15 +18,12 @@ class ConnectsController < ApplicationController
   end
 
   def show
-    @connect = Connect.find(params[:id])
   end
 
   def edit
-    @connect = Connect.find(params[:id])
   end
 
   def update
-    @connect = Connect.find(params[:id])
     if @blog.update(blog_params)
       redirect_to blogs_path, notice: "ブログを編集しました！"
     else
@@ -37,5 +35,9 @@ class ConnectsController < ApplicationController
 
   def connect_params
     params.require(:connect).permit(:connect)
+  end
+
+  def set_connect
+    @connect = Connect.find(params[:id])
   end
 end
