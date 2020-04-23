@@ -1,16 +1,17 @@
 <h1>ツイート一覧</h1>
+<p><%= notice %></p>
 <table>
   <tr>
-    <th>タイトル</th>
+    <th>内容</th>
   </tr>
-<% @connect.each do |connect|%>
+<% @connects.each do |connect| %>
   <tr>
-    <td><%= connect.content%></td>
+    <td><%= connect.content %></td>
     <td><%= link_to '詳細を確認する', connect_path(connect.id) %></td>
-    <td><%= link_to "ツイートを編集する", edit_connect_path(connect.id) %></td>
-    <td><%= link_to 'ツイートを削除する', connect_path(connect.id), method: :delete %></td>
+    <td><%= link_to "ツイートを編集する", edit_connect_path(connect.id), data: { confirm: '本当に編集していいですか？' } %></td>
+    <td><%= link_to 'ツイートを削除する', connect_path(connect.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
   </tr>
 <% end %>
 </table>
 <br>
-<%= link_to '新しくツイートを投稿する', new_connect_path%>
+<%= link_to '新しくツイートを投稿する', new_connect_path %>
