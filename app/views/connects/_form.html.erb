@@ -1,0 +1,17 @@
+<%= form_with(model: Connect.new, local: true) do |form| %>
+  <% if @connect.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @connect.errors.count %>項目のエラーがあります。</h2>
+      <ul>
+      <% @connect.errors.full_messages.each do |msg|%>  
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="connect_content">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit %>
+<% end %>
