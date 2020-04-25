@@ -1,3 +1,63 @@
 // Place all the styles related to the connects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+li{
+    list-style:none;
+}
+ul{
+    padding:0;
+}
+.header{
+    font-size:20px;
+    font-weight:bold;
+    text-align:center;
+    padding-top: 10px;
+}
+.footer{
+    font-weight:bold;
+    text-align:center;
+}
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+.navbar-default {
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
+}
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #3c763d;
+}
+.menu{
+    background-color:#012F4B;
+    color:#fff;
+}
+.menu li {
+    padding:5% 10%;
+    text-align:center;
+}
+.contents li{
+    background-color:#F3A7AB;
+    color:#fff;
+    padding:10% 10%;
+    box-sizing: border-box;
+    border: solid 1px #fff;
+}
+.topic li{
+    margin:1%;
+    border-bottom: dotted 1px #333333;
+}
+.container{
+    margin-top:20px;
+    padding: 0 15px;
+}
