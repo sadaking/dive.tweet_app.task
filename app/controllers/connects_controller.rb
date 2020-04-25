@@ -10,10 +10,14 @@ class ConnectsController < ApplicationController
 
   def create
     @connect = Connect.new(connect_params)
-    if @connect.save
-      redirect_to connects_path, notice: "ツイートを作成しました！"
-    else
+    if params[:back]
       render :new
+    else
+      if @connect.save
+        redirect_to connects_path, notice: "ツイートを作成しました！"
+      else
+        render :new
+      end
     end
   end
 
@@ -37,6 +41,11 @@ class ConnectsController < ApplicationController
   def destroy
     @connect.destroy
     redirect_to connects_path, notice:"ツイートを削除しました！"
+  end
+
+  def confirm
+    @connect = Connect.new(connect_params)
+    render :new if @connect.invalid?
   end
 
   private
