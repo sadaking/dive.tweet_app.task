@@ -3,13 +3,10 @@
 <table>
   <tr>
     <th>内容</th>
-    <th>詳細</th>
-    <th>編集</th>
-    <th>削除</th>
   </tr>
 <% @connects.each do |connect| %>
   <tr>
-    <td><%= connect.content %></td>
+    <td><%= connect.content.truncate(24, omission: '...') %></td>
     <td><%= link_to '詳細を確認する', connect_path(connect.id) %></td>
     <td><%= link_to "ツイートを編集する", edit_connect_path(connect.id), data: { confirm: '本当に編集していいですか？' } %></td>
     <td><%= link_to 'ツイートを削除する', connect_path(connect.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
